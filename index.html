@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Photo Display</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Press the button to see a random photo!</h1>
+    <button id="randomPhotoButton">Show Random Photo</button>
+    <div id="photoContainer">
+        <img id="randomPhoto" src="" alt="" style="display:none;">
+    </div>
+
+    <script>
+        const photos = [
+            'photo1.jpg',
+            'photo2.jpg',
+            'photo3.jpg',
+            'photo4.jpg', // Add more as needed
+        ];
+
+        const button = document.getElementById('randomPhotoButton');
+        const img = document.getElementById('randomPhoto');
+
+        button.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * photos.length);
+            img.src = photos[randomIndex];
+            img.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
