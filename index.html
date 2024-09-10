@@ -44,20 +44,39 @@
             'foto/photo8.jpg',
             'foto/photo9.jpg',
             'foto/photo10.jpg',
-            'foto/photo11.jpg',// Add more as needed
+            'foto/photo11.jpg'
         ];
 
-        const button = document.getElementById('randomPhotoButton');
-        const img = document.getElementById('randomPhoto');
+        let shuffledPhotos = [];
+        let currentIndex = 0;
 
-        button.addEventListener('click', () => {
-            const randomIndex = Math.floor(Math.random() * photos.length);
-            img.src = photos[randomIndex];
-            img.style.display = 'block';
-        });
-    </script>
-</body>
-</html>
+        // Function to shuffle an array (Fisher-Yates Shuffle)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to get the next photo
+        function showNextPhoto() {
+            if (currentIndex === 0 || currentIndex >= shuffledPhotos.length) {
+                shuffledPhotos = shuffleArray([...photos]); // Shuffle a new copy of the photos array
+                currentIndex = 0; // Reset index
+            }
+
+            const img = document.getElementById('randomPhoto');
+            img.src = shuffledPhotos[currentIndex]; // Show the next photo in the shuffled list
+            img.style.display = 'block'; // Display the image
+
+            currentIndex++; // Move to the next photo for the next click
+        }
+
+        // Button click event listener
+        const button = document.getElementById('randomPhotoButton');
+        button.addEventListener('click', showNextPhoto);
+
     </script>
 </body>
 </html>
