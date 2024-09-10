@@ -3,39 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Photo Display</title>
+    <title>🧱 💧</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
         img {
-            max-width: 100%;
-            height: auto;
+            max-width: 100%; /* Image will never exceed screen width */
+            height: auto; /* Maintains aspect ratio */
+            display: block;
+            margin: 20px auto; /* Centers image with spacing */
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Press the button to see a random photo!</h1>
-    <button id="randomPhotoButton">Show Random Photo</button>
+    <h1>Benvenuto al muro 🧱 del pianto 💧</h1>
+    <button id="randomPhotoButton">Prossima foto</button>
     <div id="photoContainer">
         <img id="randomPhoto" src="" alt="" style="display:none;">
     </div>
 
     <script>
         const photos = [
-            'foto/photo1.jpg',
-            'foto/photo2.jpg',
-            'foto/photo3.jpg',
-            'foto/photo4.jpg',
-            'foto/photo5.jpg',
-            'foto/photo6.jpg',
-            'foto/photo7.jpg',
-            'foto/photo8.jpg',
-            'foto/photo9.jpg',
-            'foto/photo10.jpg',
-            'foto/photo11.jpg',// Add more as needed
+            'photo1.jpg',
+            'photo2.jpg',
+            'photo3.jpg',
+            'photo4.jpg', // Add more as needed
+            'photo5.jpg', // Add more as needed
+            'photo6.jpg', // Add more as needed
+            'photo7.jpg', // Add more as needed
+            'photo8.jpg', // Add more as needed
+            'photo9.jpg', // Add more as needed
+            'photo10.jpg', // Add more as needed
+            'photo11.jpg', // Add more as needed
         ];
 
         const button = document.getElementById('randomPhotoButton');
@@ -46,6 +54,9 @@
             img.src = photos[randomIndex];
             img.style.display = 'block';
         });
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
